@@ -1,13 +1,10 @@
-variables "local_path" {
-}
-
 resource "openstack_images_image_v2" "ubuntu" {
   name             = "UbuntuOS"
-  local_file_path  = var.local_path
   container_format = "bare"
+  image_source_url = "https://cloud-images.ubuntu.com/jammy/20230602/jammy-server-cloudimg-amd64.img"
   disk_format      = "qcow2"
-  min_disk_gb = 2.5
-  min_ram_mb = 1024
+  min_disk_gb      = 2.5
+  min_ram_mb       = 1024
 }
 
 resource "openstack_networking_network_v2" "network_1" {
@@ -46,6 +43,12 @@ resource "openstack_networking_port_v2" "port_1" {
   }
 }
 
+resource "openstack_blockstorage_volume_v3" "volume_1" {
+  region      = "RegionOne"
+  name        = "volume_1"
+  description = "first test volume"
+  size        = 3
+}
 
 # Create a web server
 resource "openstack_compute_instance_v2" "test-server" {
