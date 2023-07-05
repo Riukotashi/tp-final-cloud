@@ -1,3 +1,5 @@
+# Openstack install variables
+
 variable "openstack_user_name" {
   type        = string
   description = "Open stack name"
@@ -33,12 +35,4 @@ variable "openstack_ssh_key" {
 variable "openstack_external_ip" {
   type        = string
   description = "description"
-}
-
-variable "instances" {
-  description = "List of EC2 instances configurations"
-  type        = map(object({
-    instance_image = string
-    # user_data =
-  }))
 }
