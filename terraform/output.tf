@@ -1,3 +1,4 @@
-# output "instance_ip_addr" {
-#   value = random_password.openstack_admin_password.result
-# }
+output "openstack_admin_password" {
+  value = random_password.openstack_admin_password.result
+  sensitive = true
+}
