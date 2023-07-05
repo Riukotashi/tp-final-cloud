@@ -1,21 +1,21 @@
 resource "random_password" "openstack_admin_password" {
-  length           = 32
-  special          = false
+  length  = 32
+  special = false
 }
 
 resource "random_password" "openstack_service_password" {
-  length           = 32
-  special          = false
+  length  = 32
+  special = false
 }
 
 resource "random_password" "openstack_database_password" {
-  length           = 32
-  special          = false
+  length  = 32
+  special = false
 }
 
 resource "random_password" "openstack_rabbit_password" {
-  length           = 32
-  special          = false
+  length  = 32
+  special = false
 }
 
 resource "null_resource" "openstack_ssh_target" {

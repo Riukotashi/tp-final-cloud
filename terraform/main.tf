@@ -7,7 +7,7 @@ provider "openstack" {
 }
 
 module "openstack-install" {
-  source = "./modules/ops-install/"
+  source                  = "./modules/ops-install/"
   openstack_external_ip   = var.openstack_external_ip
   openstack_user_name     = var.openstack_user_name
   openstack_tenant_name   = var.openstack_tenant_name
