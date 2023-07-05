@@ -5,10 +5,24 @@ resource "openstack_compute_instance_v2" "instances" {
   flavor_id       = openstack_compute_flavor_v2.cloud-tiny.flavor_id
   key_pair        = openstack_compute_keypair_v2.main-keypair.name
   security_groups = [openstack_compute_secgroup_v2.secgroup_1.name]
-#   user_data = 
+  user_data = file("${path.module}/scripts/${each.value.init_script}")
 
   network {
     name = "network_1"
   }
 }
+
+resource "openstack_blockstorage_volume_v3" "volumes" {
+  for_each = var.volumes
+  name = each.key
+  size = each.value.size
+}
+
+resource "openstack_compute_flavor_v2" "cloud-tiny" {
+  name  = "cloud-tiny"
+  ram   = "1024"
+  vcpus = "1"
+  disk  = "20"
+}
+
 

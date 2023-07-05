@@ -9,12 +9,12 @@ provider "openstack" {
 module "openstack-install" {
   source = "./modules/ops-install/"
   openstack_external_ip   = var.openstack_external_ip
-  openstack_user_name     = "admin"
-  openstack_tenant_name   = "admin"
-  openstack_password      = "secret"
-  openstack_ssh_user      = "openstack"
-  openstack_sudo_password = "openstack"
-  openstack_ssh_key       = "/home/kevin/.ssh/id_rsa"
+  openstack_user_name     = var.openstack_user_name
+  openstack_tenant_name   = var.openstack_tenant_name
+  openstack_password      = var.openstack_password
+  openstack_ssh_user      = var.openstack_ssh_user
+  openstack_sudo_password = var.openstack_sudo_password
+  openstack_ssh_key       = var.openstack_ssh_key
 
 }
 
