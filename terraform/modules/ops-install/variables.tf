@@ -1,5 +1,3 @@
-# Openstack install variables
-
 variable "openstack_user_name" {
   type        = string
   description = "Open stack name"
