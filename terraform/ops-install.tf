@@ -1,25 +1,21 @@
 resource "random_password" "openstack_admin_password" {
   length           = 32
-  special          = true
-  override_special = "!#$%&*()+?"
+  special          = false
 }
 
 resource "random_password" "openstack_service_password" {
   length           = 32
-  special          = true
-  override_special = "!#$%&*()+?"
+  special          = false
 }
 
 resource "random_password" "openstack_database_password" {
   length           = 32
-  special          = true
-  override_special = "!#$%&*()+?"
+  special          = false
 }
 
 resource "random_password" "openstack_rabbit_password" {
   length           = 32
-  special          = true
-  override_special = "!#$%&*()+?"
+  special          = false
 }
 
 resource "null_resource" "openstack_ssh_target" {
@@ -31,7 +27,7 @@ resource "null_resource" "openstack_ssh_target" {
   }
   provisioner "remote-exec" {
     inline = [
-      "echo openstack | sudo -S mkdir /opt/stack",
+      "echo ${var.openstack_sudo_password} | sudo -S mkdir /opt/stack",
       "sudo chown openstack:openstack /opt/stack",
       "sudo chmod +x /opt/stack",
       "echo 'openstack ALL=(ALL) NOPASSWD: ALL' | sudo tee /etc/sudoers.d/stack",
@@ -42,5 +38,6 @@ resource "null_resource" "openstack_ssh_target" {
       "./stack.sh"
     ]
   }
+
 }
 
