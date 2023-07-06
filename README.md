@@ -20,3 +20,4 @@ Dans les dossiers on trouve :
 ## Ressources
 
 * utilisation de pandoc pour passer d'un md en pdf
+* utilisation de doctave pour la documentation
