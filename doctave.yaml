@@ -1,0 +1,11 @@
+---
+title: "Deploiement OpenStack avec Terraform"
+
+navigation:
+  - path: docs/configuration-initiale.md
+  - path: docs/creation-code-terraform.md
+  - path: docs/provisiomment-infra.md
+  - path: docs/gestion-code.md
+  - path: docs/maj-infra.md
+  - path: docs/destruction-infra.md
+  - path: docs/rapport-final.md
